@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Xin chào {{ $a }}</h1>
+    <ul>
+        @foreach ($menu as $key => $value)
+            <li><a href="{{ $key }}">{{ $value }}</a></li>
+        @endforeach
+    </ul>
 </body>
 </html>
