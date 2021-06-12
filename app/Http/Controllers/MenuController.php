@@ -15,7 +15,7 @@ class MenuController extends Controller
         ];
 
         return view("menu", [
-            "menu" => $menu
+            "menu" => $menu,
         ]);
     }
 }

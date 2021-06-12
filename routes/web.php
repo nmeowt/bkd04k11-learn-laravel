@@ -11,11 +11,9 @@ Route::get('/', function () {
 
 Route::get('/sinh-vien/{name}', [StudentController::class, 'index']);
 
-// TODO: Tính tổng, bài báo tạo controller
 
 Route::get('/menu', [MenuController::class, 'index']);
 
-// TODO: thêm view với controller
 Route::get('/trang-chu', function () {
     return "Trang chủ";
 });
