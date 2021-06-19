@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClassroomController extends Controller
 {
@@ -12,9 +13,17 @@ class ClassroomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Nhận dữ liệu
+        $search = $request->get('search');
+        // $listClassroom = DB::select("SELECT * FROM classroom"); # Query raw
+        // $listClassroom = DB::table('classroom')->get(); #Query Builder
+        $listClassroom = Classroom::where('name', 'LIKE', "%$search%")->paginate(1); # Lấy hết tất cả bản ghi
+        return view('class.index', [
+            "listClassroom" => $listClassroom,
+            "search" => $search,
+        ]);
     }
 
     /**
@@ -39,6 +48,7 @@ class ClassroomController extends Controller
         $classroom = new Classroom();
         $classroom->name = $name;
         $classroom->save();
+        return redirect(route('class.index'));
     }
 
     /**

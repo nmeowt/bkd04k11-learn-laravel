@@ -51,14 +51,6 @@
                         <a class="navbar-brand" href="#">Dashboard PRO</a>
                     </div>
                     <div class="collapse navbar-collapse">
-
-                        <form class="navbar-form navbar-left navbar-search-form" role="search">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                            </div>
-                        </form>
-
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="charts.html">
