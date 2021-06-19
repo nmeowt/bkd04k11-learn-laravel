@@ -19,7 +19,7 @@ class ClassroomController extends Controller
         $search = $request->get('search');
         // $listClassroom = DB::select("SELECT * FROM classroom"); # Query raw
         // $listClassroom = DB::table('classroom')->get(); #Query Builder
-        $listClassroom = Classroom::where('name', 'LIKE', "%$search%")->paginate(1); # Lấy hết tất cả bản ghi
+        $listClassroom = Classroom::where('name', 'LIKE', "%$search%")->paginate(5); # Lấy hết tất cả bản ghi
         return view('class.index', [
             "listClassroom" => $listClassroom,
             "search" => $search,
