@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ClassroomController extends Controller
 {
@@ -59,7 +58,9 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        //
+        // $classroom = Classroom::where('id', '=', $id)->first();
+        $classroom = Classroom::find($id);
+        return $classroom->name;
     }
 
     /**
@@ -93,6 +94,8 @@ class ClassroomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $classroom = Classroom::find($id);
+        $classroom->delete();
+        return redirect(route('class.index'));
     }
 }
