@@ -10,7 +10,7 @@
                 <div class="content table-responsive table-full-width">
                     <form class="navbar-search-form" role="search">
                         <div class="input-group">
-                            <input type="text" name="search" value="{{ $search }}" class="form-control"
+                            <input type="text" name="search" value="{{ $c2VhcmNo }}" class="form-control"
                                 placeholder="Search...">
                             <span class="input-group-addon"><button><i class="fa fa-search"></i></button></span>
                         </div>
@@ -33,20 +33,27 @@
                                             Xem
                                         </a>
                                     </td>
-                                    <td></td>
                                     <td>
-                                        <form action="{{ route('class.destroy', $classroom->id) }}" method="post">
+                                        <a class="btn btn-primary" href="{{ route('class.edit', $classroom->id) }}">
+                                            Sửa
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-- <form action="{{ route('class.hide', $classroom->id) }}" method="post">
                                             @csrf
-                                            @method("DELETE")
+                                            @method("PATCH")
                                             <button class="btn btn-primary">Xóa</button>
-                                        </form>
+                                        </form> --}}
+                                        <a class="btn btn-primary" href="{{ route('class.hide', $classroom->id) }}">
+                                            Ẩn
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     {{-- Hiển thị phân trang --}}
-                    {{ $listClassroom->appends(['search' => $search])->links('pagination::semantic-ui') }}
+                    {{ $listClassroom->appends(['search' => $c2VhcmNo])->links('pagination::semantic-ui') }}
                 </div>
             </div>
         </div>

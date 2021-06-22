@@ -19,9 +19,10 @@ class ClassroomController extends Controller
         // $listClassroom = DB::select("SELECT * FROM classroom"); # Query raw
         // $listClassroom = DB::table('classroom')->get(); #Query Builder
         $listClassroom = Classroom::where('name', 'LIKE', "%$search%")->paginate(5); # Lấy hết tất cả bản ghi
+
         return view('class.index', [
             "listClassroom" => $listClassroom,
-            "search" => $search,
+            "c2VhcmNo" => $search,
         ]);
     }
 
@@ -71,7 +72,10 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classroom = Classroom::find($id);
+        return view('class.edit', [
+            "classroom" => $classroom
+        ]);
     }
 
     /**
@@ -83,7 +87,11 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name = $request->get('name');
+        Classroom::where('id', $id)->update([
+            "name" => $name
+        ]);
+        return redirect(route('class.index'));
     }
 
     /**
@@ -97,5 +105,10 @@ class ClassroomController extends Controller
         $classroom = Classroom::find($id);
         $classroom->delete();
         return redirect(route('class.index'));
+    }
+
+    public function hide($id)
+    {
+        echo $id;
     }
 }
