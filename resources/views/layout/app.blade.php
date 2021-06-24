@@ -125,9 +125,9 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-danger">
+                                        <a href="{{ route('logout') }}" class="text-danger">
                                             <i class="pe-7s-close-circle"></i>
-                                            Log out
+                                            Đăng xuất
                                         </a>
                                     </li>
                                 </ul>
