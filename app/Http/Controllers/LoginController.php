@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ministry;
 use Exception;
+use App\Models\Ministry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -20,7 +21,8 @@ class LoginController extends Controller
             $password = $request->get('password');
             $ministry = Ministry::where('email', $email)->where('password', $password)->firstOrFail();
             $request->session()->put('id', $ministry->id);
-            return view('dashboard'); # chưa học hết đâu, 2 phần nữa cơ
+            $request->session()->put('fullName', $ministry->fullName);
+            return Redirect::route('dashboard');
         } catch (Exception $e) {
             return redirect()->route('login')->with('error', 'Lỗi rồi nhập lại đi');
         }

@@ -11,6 +11,13 @@
     </div>
 
     <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="info text-center">
+                <span>
+                    {{ Session::get('fullName') }}
+                </span>
+            </div>
+        </div>
 
         <ul class="nav">
             <li class="active">
