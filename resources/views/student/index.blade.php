@@ -7,7 +7,7 @@
 
             <form>
                 Chọn lớp: <select name="id-class" class="form-control">
-                    <option>----</option>
+                    <option value="0">----</option>
                     @foreach ($listClassroom as $classroom)
                         <option value="{{ $classroom->id }}" @if ($classroom->id == $idClass) selected @endif>{{ $classroom->name }}</option>
                     @endforeach
@@ -15,7 +15,9 @@
                 <button>Ok</button>
             </form>
 
-            <a href="{{ route('student.create', ['id-class' => $idClass]) }}">Thêm</a>
+            <a href="{{ route('student.insert-by-excel') }}" class="btn btn-default">Thêm bằng excel</a>
+
+            <a href="{{ route('student.export-excel') }}" class="btn btn-primary">Tải danh sách sinh viên</a>
             <div class="card card-plain">
                 <div class="content table-responsive table-full-width">
                     <form class="navbar-search-form" role="search">

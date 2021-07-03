@@ -19,10 +19,13 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // Sinh viên
-    Route::resource('student', StudentController::class);
     Route::prefix('student')->name('student.')->group(function () {
         Route::get('/{id}/hide', [StudentController::class, 'hide'])->name('hide');
+        Route::get('/insert-by-excel', [StudentController::class, 'insertByExcel'])->name('insert-by-excel');
+        Route::post('/insert-by-excel-process', [StudentController::class, 'insertByExcelProcess'])->name('insert-by-excel-process');
+        Route::get("/export", [StudentController::class, 'export'])->name('export-excel');
     });
+    Route::resource('student', StudentController::class);
 
     // Lớp
     Route::resource('class', ClassroomController::class);

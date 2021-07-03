@@ -11,6 +11,8 @@ class Student extends Model
 
     protected $table = 'student';
 
+    protected $fillable = ["name", "email", "gender", "dateBirth", "idClass"];
+
     public $timestamps = false;
 
     // Cú pháp: bắt đầu bằng get, kết thúc bằng attribute
