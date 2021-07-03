@@ -27,9 +27,9 @@
                 </a>
             </li>
             <li>
-                <a href="charts.html">
-                    <i class="pe-7s-graph1"></i>
-                    <p>Charts</p>
+                <a href="{{ route('student.index') }}">
+                    <i class="pe-7s-users"></i>
+                    <p>Quản lý sinh viên</p>
                 </a>
             </li>
 

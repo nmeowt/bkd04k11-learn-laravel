@@ -10,7 +10,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Tên</label>
-                        <input type="text" name="name" value="{{ $classroom->name }}" class="form-control">
+                        <input type="text" required name="name" value="{{ $classroom->name }}" class="form-control">
                     </div>
 
                     <button type="submit" class="btn btn-fill btn-info">Cật nhật</button>

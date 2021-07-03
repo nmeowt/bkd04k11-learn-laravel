@@ -44,7 +44,7 @@
                                             @method("PATCH")
                                             <button class="btn btn-primary">Xóa</button>
                                         </form> --}}
-                                        <a class="btn btn-primary" href="{{ route('class.hide', $classroom->id) }}">
+                                        <a class="btn btn-primary" href="{{ route('hide', $classroom->id) }}">
                                             Ẩn
                                         </a>
                                     </td>

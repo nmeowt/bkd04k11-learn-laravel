@@ -18,7 +18,15 @@ Route::middleware([CheckLogin::class])->group(function () {
     })->name('dashboard');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    // Sinh viên
+    Route::resource('student', StudentController::class);
+    Route::prefix('student')->name('student.')->group(function () {
+        Route::get('/{id}/hide', [StudentController::class, 'hide'])->name('hide');
+    });
+
     // Lớp
     Route::resource('class', ClassroomController::class);
-    Route::get('class/{id}/hide', [ClassroomController::class, 'hide'])->name('class.hide');
+    Route::group(['name' => 'class.', 'prefix' => 'class'], function () {
+        Route::get('/{id}/hide', [ClassroomController::class, 'hide'])->name('hide');
+    });
 });
