@@ -217,4 +217,7 @@
     });
 </script>
 
+{{-- Customize code --}}
+<script src="{{ asset('assets') }}/js/demo-select.js"></script>
+
 </html>

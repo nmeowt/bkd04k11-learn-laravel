@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\DemoController;
 use App\Http\Middleware\CheckLogin;
 
 // Route::method(url, hành động)
@@ -31,5 +32,11 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::resource('class', ClassroomController::class);
     Route::group(['name' => 'class.', 'prefix' => 'class'], function () {
         Route::get('/{id}/hide', [ClassroomController::class, 'hide'])->name('hide');
+    });
+
+    // Demo 
+    Route::prefix('demo')->name('demo.')->group(function () {
+        Route::get('/', [DemoController::class, 'index'])->name('index');
+        Route::get('/get-students/{id}', [DemoController::class, 'getStudentsByIdClass'])->name('get-students');
     });
 });

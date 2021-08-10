@@ -20,7 +20,7 @@
         </div>
 
         <ul class="nav">
-            <li class="active">
+            <li>
                 <a href="{{ route('class.index') }}">
                     <i class="pe-7s-graph"></i>
                     <p>Quản lý lớp</p>
@@ -32,7 +32,12 @@
                     <p>Quản lý sinh viên</p>
                 </a>
             </li>
-
+            <li>
+                <a href="{{ route('demo.index') }}">
+                    <i class="pe-7s-users"></i>
+                    <p>Demo Select</p>
+                </a>
+            </li>
             <li>
                 <a href="calendar.html">
                     <i class="pe-7s-date"></i>
